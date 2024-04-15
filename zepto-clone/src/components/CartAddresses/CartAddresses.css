@@ -1,0 +1,26 @@
+.component-overlay-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.add-address-btn{
+    border: none;
+    background-color: gray;
+    
+}
+.address-text{
+    margin-bottom: 0px;
+}
+.saved-address-text{
+    color: gray;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+.change-address-container{
+    color: red;
+    cursor: pointer;
+}
+.change-address-modal-container{
+    width: 400px;
+}

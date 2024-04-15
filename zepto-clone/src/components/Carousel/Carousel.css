@@ -1,0 +1,42 @@
+.carousel {
+    width: 98%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+
+  }
+ 
+  .carousel-content {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+ 
+  .carousel-item {
+    flex: 0 0 auto;
+    width: 50%;
+    margin: 0px 10px;
+    height: 300px;
+  }
+ 
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    z-index: 1;
+  }
+ 
+  .carousel-btn.left {
+    left: 0;
+  }
+ 
+  .carousel-btn.right {
+    right: 0;
+  }
+ 

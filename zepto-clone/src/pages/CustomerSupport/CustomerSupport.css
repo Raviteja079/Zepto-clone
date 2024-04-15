@@ -1,0 +1,35 @@
+.angle-right{
+    color: red;
+}
+.faq-list-item{
+    border-bottom: 1px solid gray;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+
+}
+.faq-heading{
+    color: black;
+    padding:0px 0px 10px 50px;
+    font-weight: bold;
+}
+.link-text{
+    text-decoration: none;
+    color: black;
+}
+.link-text:hover{
+    color: black;
+}
+.customer-support-tab{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+}
+.content-container{
+    margin-top:10px;
+    width: 100%;
+}

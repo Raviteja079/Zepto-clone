@@ -1,0 +1,23 @@
+.cardsListContainer {
+  padding: 0px 0px;
+}
+.cardsListContainer .listContainer{
+    display: flex;
+    padding: 0px 0px;
+    
+}
+.cardsList{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 17px 0px;
+}
+@media (max-width:1023px){
+    .cardsList{
+        padding: 17px 0px;
+    }
+    .listContainer{
+        padding: 0px;
+    }
+
+    
+}

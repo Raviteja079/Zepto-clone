@@ -1,0 +1,132 @@
+.card-link{
+    text-decoration: none;
+    width: 30%;
+}
+.search-page-card-link{
+    text-decoration: none;
+    width: 16%;
+}
+.card-container {
+  /* position: relative; */
+  height: 18rem;
+  background-color: white;
+  box-shadow: 0px 0px 1px gray;
+  padding: 20px;
+  color: black;
+  margin: 15px;
+  border: 0px solid rgb(204, 201, 201);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.search-page-card-container{
+    width: 90%;
+}
+.card-products-container{
+    width: 90%;
+}
+.card-container:hover {
+  color: black;
+}
+.product-image-container {
+  height: 50%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+  cursor: pointer;
+  margin-top: 10px;
+}
+.listItem {
+  width: 100%;
+  margin: 2px 16px 20px 16px;
+  min-width: 120px;
+  max-width: 130px;
+  max-height: 200px;
+}
+.listItemFirst {
+  width: 100%;
+  margin: 2px 16px 20px 16px;
+  min-width: 280px;
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.discount-container {
+  background-image: url("../../assets/discount-banner.webp");
+  background-size: cover;
+  z-index:1;
+  position: absolute;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+  padding: 2px;
+  top: 0px;
+  left: 0px;
+}
+.item-name {
+  margin-top: 10px;
+}
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quantity-text {
+  color: rgba(var(--color-primary-void), 0.7);
+  font-size: 15px;
+  font-weight: 400;
+  color: gray;
+}
+.original-price {
+  font-size: 15px;
+  text-decoration: line-through;
+  margin: 0px;
+}
+.offer-price {
+  font-size: 16px;
+  font-weight: 700;
+}
+.btns-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  color: rgb(252, 251, 251);
+  border: none;
+  border-radius: 10px;
+  padding: 2px 5px;
+  background-color: #ff3269;
+}
+.add-btn {
+  border-radius: 10px;
+  background-color: #ff3269;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.icons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.increment-decrement-btn {
+  background-color: #ff3269;
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+.count-container {
+  color: white;
+    background-color:#ff3269;
+}

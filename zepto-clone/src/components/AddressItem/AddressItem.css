@@ -1,0 +1,8 @@
+.icon-button{
+    cursor: pointer;
+    margin-right: 20px;
+}
+.address-entry-container{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,346 @@
+.page-container {
+  padding-top: 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f1f7;
+}
+.msg-ribbon {
+  width: 100%;
+  height: 44px;
+  background-image: linear-gradient(to right, #79177a, #4f13b4, #79177a);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  z-index: 3;
+}
+.banner-icon {
+  height: 60px;
+  width: 70px;
+  margin-top: 15px;
+}
+.saved-amount-text {
+  background-color: #daf4db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+  width: 260px;
+}
+.saved-amount {
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+.saved-text {
+  margin-bottom: 0;
+}
+.cart-order-details-container {
+  display: flex;
+  flex-direction:row ;
+  justify-content: space-between;
+  padding-top: 40px;
+  width: 97%;
+}
+.cart-saved-amount {
+    padding-left: 60px;
+    width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.add-more-btn-container{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 120px;
+    text-decoration: none;
+}
+.add-more-btn {
+  background-color: #4c1577bf;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 13px;
+}
+
+.orders-total-container {
+  display: flex;
+  margin: 0px 20px 0px 20px ;
+  width: 90%;
+  padding: 15px;
+}
+.orders-card {
+  border-radius: 15px;
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+  height: fit-content;
+  padding: 15px;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 0px 4px gray;
+}
+.delivery-feature-heading{
+    font-weight: 600;
+    color: black;
+    font-size: 17px;
+}
+.delivery-feature-description{
+    color: rgb(158, 151, 151);
+    font-size: 14px;
+}
+.tips-card{
+    border-radius: 15px;
+  width: 100%;
+    margin-top: 15px;
+  height: fit-content;
+  padding: 15px;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 0px 4px gray;
+}
+
+.left-container{
+    width: 60%;
+}
+.total-card {
+  width: 40%;
+  border-radius: 12px;
+  background-color: white;
+}
+.cart-coupons{
+    cursor: pointer;
+}
+.cart-coupons-head{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.ordered-product-card {
+    display: flex;
+    justify-content: space-between;
+  height: 95px;
+  margin: 10px;
+}
+.ordered-product-image {
+  height: 70px;
+  width: 70px;
+  margin: 0px 20px;
+}
+.delivery-instructions{
+    border-radius: 15px;
+  width: 100%;
+    margin-top: 15px;
+  height: fit-content;
+  padding: 15px;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 0px 4px gray;
+}
+.cp-card-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgb(233, 231, 231);
+}
+.cp-btns-container{
+background-color: #ff3269;
+width: 90px;
+padding:3px 6px;
+border-radius: 7px;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+}
+.btn-icon{
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+}
+.cp-count-text{
+margin: 0px 8px;
+}
+
+.cp-product-name{
+    margin: 0px;
+    font-size: 16px;
+}
+.cp-quantity{
+    margin: 0px;
+    color: gray;
+    font-size: 12px;
+
+}
+.cp-prices{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+}
+.cp-offer-price{
+    font-weight: 700;
+    margin-right: 15px;
+}
+.cp-original-price{
+    text-decoration: line-through;
+    color: red;
+    font-weight: normal;
+}
+.total-card{
+  background-color: #f5f1f7;
+    margin-left: 15px;
+}
+.offers-image{
+    margin-right: 10px;
+}
+.coupons-offers-card{
+    background-color: white;
+    width: 384px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 12px 20px;
+}
+.applied-coupons-text{
+    font-size: 17px;
+}
+.coupon-name{
+    color: gray;
+    font-size: 14px;
+}
+.right-angled-icon{
+    color: #ff3269;
+}
+.cp-item-total{
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px gray;
+    width: 384px;
+    min-height: 187px;
+    padding: 25px 20px;
+    margin-top: 20px;
+}
+.item-total-row{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 600;
+}
+.order-total{
+    display: flex;
+    align-items: center;
+}
+.total-original-price{
+font-weight: 600;
+text-decoration: line-through;
+color: gray;
+font-size: 20px;
+margin-right: 5px;
+}
+.total-discount-price{
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+}
+.order-total{
+    display: flex;
+    justify-content: space-between;
+}
+.cp-to-pay-text{
+    font-size: 16px;
+    font-weight: 600;
+}
+.to-pay-amount-text{
+    font-weight: 18px;
+    font-weight: 700;
+}
+.cp-fee-row{
+    display: flex;
+    justify-content: space-between;
+}
+.fee-type-text{
+    color: gray;
+    font-size: 13px;
+}
+.original-fee-type{
+    color: grey;
+    font-size: 13px;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+.discounted-fee-type{
+    font-size: 13px;
+    color: green;
+}
+.platform-fee{
+    color: gray;
+}
+
+.to-pay-amount{
+    border-bottom: 0.3px solid rgb(209, 204, 204);
+    display: flex;
+    justify-content: space-between;
+}
+.cp-add-address{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px gray;
+    margin-top: 20px;
+    width: 384px;
+}
+.cp-location-image{
+    height: 27px;
+    width: 20px;
+    margin: 15px 15px 15px 0px;
+}
+.cp-enter-address-text{
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+.cp-delivery-location{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.cp-address-to-delivery{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 6px;
+}
+.cp-add-address-btn{
+   background-color: #ff3269;
+    width: 400px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+@media (max-width:1023px){
+    .msg-ribbon{
+        display: none;
+    }
+    .page-container{
+        padding-top: 0px;
+    }
+}

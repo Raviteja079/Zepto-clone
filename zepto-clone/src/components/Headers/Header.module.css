@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+.headers {
+  background: linear-gradient(rgb(255, 244, 226), rgb(255, 244, 226));
+  height: 87px;
+  display: flex;
+  align-items: center;
+  padding: 6px 6px 6px 45px;
+  border-bottom:1px solid rgb(211, 203, 203);
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 1;
+}
+.logo-link{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.header-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-inner-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.searchbar-container{
+    margin-right: 20px;
+    max-width: 750px;
+    display: flex;
+    /* min-width: 730px; */
+    width: 80%;
+    align-items: center;
+}
+.searchBarLink {
+  width: 100%;
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  text-decoration: none;
+  color: rgb(36, 34, 34);
+  font-size: 15px;
+  border: 0.5px solid #e5e7eb;
+
+}
+.searchBarLink:hover{
+    color: black;
+}
+.searchIcon {
+  font-size: 21px;
+  margin: 0px 15px;
+}
+
+.headers .iconContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.iconAccountContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.iconContainer .icon {
+    position: relative;
+  font-size: 22px;
+}
+.profileText{
+    color: black;
+}
+.container-div {
+  height: 30px;
+  width: 150px;
+  text-align: center;
+  color: rgb(128, 124, 124);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.line {
+  display: block;
+  animation: spin_words 3s ease-in-out infinite;
+  padding: 5px;
+  margin-top: 0px;
+  width: 150px;
+  text-align: left;
+  font-size: 15px;
+  list-style-type: none;
+}
+
+@keyframes spin_words {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+.logo-location-container{
+    display: flex;
+    width: 400px;
+}
+.navbar-container{
+    width: 100px;
+display: flex;
+margin-right: 10px;
+}
+.products-count-container{
+height: 50px;
+width: 50px;
+border-radius: 50%;
+background-color: blueviolet;
+color: white;
+font-size: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.count-text{
+    margin-bottom: 0px;
+}
+@media (max-width: 1023px) {
+    .navbar-container{
+        display: none;
+    }
+    .logo-link{
+        display: none;
+    }
+    .iconAccountContainer{
+        padding-left:18px;
+    }
+    .profileText{
+        display: none;
+    }
+    .icon{
+        font-size: 30px;
+    }
+    .header-inner-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .headers{
+        height: 140px;
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+    .searchbar-container{
+        max-width: 930px;
+        margin: 15px;
+    }
+}
+@media (min-width:1024px){
+    .iconAccountContainer {
+        display: none;
+    }
+    
+}
+.cart-count-container{
+    position: absolute;
+    padding: 1px 8px;
+    background-color: rgb(142, 68, 173);;
+    color: white;
+    border-radius: 50%;
+    top: 8px;
+    right: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-search-bar{
+    width: 100%;
+}

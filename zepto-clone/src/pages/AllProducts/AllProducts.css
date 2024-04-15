@@ -1,0 +1,24 @@
+.all-products-list-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px;
+  margin-top: 90px;
+}
+.all-products-head{
+    width: 94%;
+    text-align: left;
+}
+.cardsListContainer {
+  padding: 0px 17px;
+}
+/* .cardsListContainer .listContainer{
+    overflow-x: auto;
+    display: flex;
+    padding: 0px 10px;
+    scrollbar-width: none;
+} */
+/* .cardsList{
+  display: flex;
+} */

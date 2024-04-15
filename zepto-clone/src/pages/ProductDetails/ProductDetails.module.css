@@ -1,0 +1,262 @@
+.wrapper {
+  padding-top: 87px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.left-section {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  padding: 16px;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(209, 205, 205);
+  border-radius: 8px;
+  width: 100%;
+  /* height: 50%; */
+  padding: 50px;
+}
+.right-section {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  padding: 16px;
+}
+.about-product {
+  padding: 16px 0px;
+}
+.description-container {
+  display: block;
+}
+.about-product-unordered-list {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: rgb(148, 143, 143);
+  padding: 0px 0px 0px 16px;
+}
+.navigation-text {
+  color: gray;
+}
+.navigation-links {
+  color: gray;
+  text-decoration: none;
+}
+.navigation-links:hover {
+  color: gray;
+}
+.product-name {
+  color: black;
+  font-weight: 700;
+}
+.price-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.quantity {
+  color: gray;
+}
+.original-price {
+  font-size: 17px;
+  color: gray;
+  text-decoration: line-through;
+  margin-bottom: 0px;
+  margin-right: 7px;
+}
+.offer-price {
+  font-size: 25px;
+  color: black;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-right: 7px;
+}
+.discount-percentage {
+  background: linear-gradient(rgb(99, 7, 141) 0%, rgb(174, 0, 255) 100%);
+  color: white;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  /* width: 58px; */
+  height: 24px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btns-container {
+    width: 112px;
+    height: 48px;
+    margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(252, 251, 251);
+  border: none;
+  border-radius: 10px;
+  padding: 2px 5px;
+  background-color: #ff3269;
+}
+.add-btn {
+  width: 112px;
+  height: 48px;
+  padding: 0px 4px;
+  background-color: #ff3269;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  margin: 30px 0px;
+}
+.icons-container {
+    width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.increment-decrement-btn {
+  background-color: #ff3269;
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+.count-container {
+  color: white;
+    background-color:#ff3269;
+    /* margin: 0px 10px; */
+}
+
+.hr-line {
+  border-color: rgb(219, 214, 214);
+}
+.icon-container {
+  border: 1px solid rgb(207, 202, 202);
+  /* padding: 7px; */
+  margin-right: 10px;
+  border-radius: 4px;
+  height: 78px;
+}
+.icon-image {
+  height: 78px;
+  width: 74px;
+}
+.how-it-works {
+  font-size: 20px;
+  margin: 30px 0px 46px 0px;
+}
+.how-it-works-heading {
+  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
+}
+.how-it-works-description {
+  color: rgb(189, 180, 180);
+  font-size: 17px;
+  font-weight: 500;
+}
+.categories-heading {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.footer-container {
+  padding: 16px;
+  width: 100%;
+}
+.categories-unordered-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+}
+.category-list-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 25%;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+.category-links {
+  text-decoration: none;
+  color: black;
+}
+.category-links:hover {
+  color: black;
+}
+.zepto-logo {
+  width: 105px;
+  height: 34px;
+}
+.social-media-ac {
+  display: flex;
+  flex-direction: column;
+}
+.social-media-icon {
+  width: 47px;
+  height: 22px;
+  padding: 0px 25px 0px 0px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+.company-name {
+  font-size: 14px;
+  color: gray;
+  margin-top: 16px;
+}
+.external-links {
+  text-decoration: none;
+  width: 52%;
+  color: black;
+  cursor: pointer;
+}
+.external-links:hover {
+  color: black;
+}
+.social-media-ac-container {
+  width: 30%;
+}
+.external-links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 40%;
+}
+.download-app {
+  width: 30%;
+}
+.app-icon{
+    height: 15px;
+    width:15px;
+    margin: 0px 8px;
+    cursor: pointer;
+}
+.download-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 7px;
+    padding: 14px 28px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.download-btn:hover{
+    color: black;
+}
+.button-text{
+    margin-bottom: 0px;
+}

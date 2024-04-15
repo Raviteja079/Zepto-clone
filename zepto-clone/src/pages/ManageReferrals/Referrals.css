@@ -1,0 +1,53 @@
+.manage-referrals-container {
+    height: 95vh;
+    width: 100%;
+  background: linear-gradient(180deg, #8b4fed, #4935c8, #8b4fed, #fff, #fff);
+  margin: 30px 20px 0px 20px;
+}
+.offer-text{
+    margin: 25px;
+    font-weight: 600;
+}
+.working-container{
+    background-color: white;
+    border-radius:10px;
+    margin: 20px;
+}
+.working-head{
+    padding: 20px;
+    color: black;
+}
+.working-list-text{
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}
+.bold-text{
+    font-weight: bolder;
+}
+.share-btn{
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    display: block;
+    width: 80%;
+    border:1px solid gray;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+}
+.bottom-section{
+    color: gray;
+    text-align: center;
+}
+.referral-head-container{
+    text-align: center;
+
+}
+.referral-head{
+    color: black;
+}

@@ -1,0 +1,18 @@
+.cart-content-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+.empty-bag{
+    height: 52px;
+    width: 48px;
+}
+.browse-products-btn{
+    border: 2px solid rgb(226, 93, 93);
+    border-radius: 6px;
+    padding: 5px;
+    background-color: transparent;
+    color: #ff3269;
+}

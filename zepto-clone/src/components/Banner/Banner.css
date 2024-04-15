@@ -1,0 +1,19 @@
+.bannerImageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 17px 20px;
+  margin-top: 87px;
+}
+.bannerImageContainer .bannerImage {
+  width: 100%;
+  border-radius: 10px;
+}
+@media (max-width:1023px){
+    .bannerImageContainer{
+        margin-top: 130px;
+        padding: 17px 17px;
+    }
+
+    
+}
