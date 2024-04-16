@@ -20,6 +20,7 @@ import {
 } from "firebase/firestore";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {generateId} from "../utils/order"
 
 const firebaseConfig = {
   apiKey: "AIzaSyDupak0LgF-iX74jbFKmcHgtuD0k3q9pWQ",
@@ -39,6 +40,7 @@ const FirebaseContext = createContext("");
 export const useFirebase = () => useContext(FirebaseContext);
 
 export const LoggedInStatusProvider = ({ children }) => {
+
   const [user, setUser] = useState("");
   const [myLocation, setMyLocation] = useState("");
   const [showLocation, setShowLocation] = useState(true);
@@ -67,11 +69,12 @@ export const LoggedInStatusProvider = ({ children }) => {
 
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (user) => {
-      console.log(user);
       if (user) {
         setUser(user);
+        sessionStorage.setItem("isLoggedIn", true);
       } else {
         setUser(null);
+        sessionStorage.setItem("isLoggedIn", false)
       }
     });
   }, []);
@@ -333,16 +336,6 @@ export const LoggedInStatusProvider = ({ children }) => {
     getAllCartProducts();
   }, []);
 
-  function generateId(length) {
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let result = "";
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
 
   const saveAsOrder = async (orderDetails, orderCharges) => {
     try {

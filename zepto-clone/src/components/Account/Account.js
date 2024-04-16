@@ -42,7 +42,7 @@ const Account = () => {
         <div className="side-bar">
           <div className="account-details">
             <h3 className="my-account-head">My Account</h3>
-            <h4 className="email-head">{user.email}</h4>
+            <h4 className="email-head">{user && user.email}</h4>
           </div>
           <div className="hr-line-profile"></div>
 

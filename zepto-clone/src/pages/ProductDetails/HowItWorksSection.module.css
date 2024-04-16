@@ -1,0 +1,25 @@
+.icon-container {
+  border: 1px solid rgb(207, 202, 202);
+  /* padding: 7px; */
+  margin-right: 10px;
+  border-radius: 4px;
+  height: 78px;
+}
+.icon-image {
+  height: 78px;
+  width: 74px;
+}
+.how-it-works {
+  font-size: 20px;
+  margin: 30px 0px 46px 0px;
+}
+.how-it-works-heading {
+  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
+}
+.how-it-works-description {
+  color: rgb(189, 180, 180);
+  font-size: 17px;
+  font-weight: 500;
+}

@@ -1,0 +1,93 @@
+.categories-heading {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.footer-container {
+  padding: 16px;
+  width: 100%;
+}
+.categories-unordered-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+}
+.category-list-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 25%;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+.category-links {
+  text-decoration: none;
+  color: black;
+}
+.category-links:hover {
+  color: black;
+}
+.zepto-logo {
+  width: 105px;
+  height: 34px;
+}
+.social-media-ac {
+  display: flex;
+  flex-direction: column;
+}
+.social-media-icon {
+  width: 47px;
+  height: 22px;
+  padding: 0px 25px 0px 0px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+.company-name {
+  font-size: 14px;
+  color: gray;
+  margin-top: 16px;
+}
+.external-links {
+  text-decoration: none;
+  width: 52%;
+  color: black;
+  cursor: pointer;
+}
+.external-links:hover {
+  color: black;
+}
+.social-media-ac-container {
+  width: 30%;
+}
+.external-links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 40%;
+}
+.download-app {
+  width: 30%;
+}
+.app-icon{
+    height: 15px;
+    width:15px;
+    margin: 0px 8px;
+    cursor: pointer;
+}
+.download-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 7px;
+    padding: 14px 28px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.download-btn:hover{
+    color: black;
+}
+.button-text{
+    margin-bottom: 0px;
+}

@@ -19,6 +19,7 @@ const CartAddresses = ({total,orderCharges}) => {
     setCount,
     setTotal
   } = useFirebase();
+  
   const [allAddresses, setAllAddresses] = useState([]);
   const [cartAddressModalOpen, setCartAddressModalOpen] = useState(false);
   const [AddAddressModalOpen, setAddAddressModalOpen] = useState(false);

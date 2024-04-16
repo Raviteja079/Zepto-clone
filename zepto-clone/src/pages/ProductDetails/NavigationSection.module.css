@@ -1,0 +1,10 @@
+.navigation-text {
+  color: gray;
+}
+.navigation-links {
+  color: gray;
+  text-decoration: none;
+}
+.navigation-links:hover {
+  color: gray;
+}

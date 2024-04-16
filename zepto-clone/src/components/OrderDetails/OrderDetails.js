@@ -1,20 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useFirebase } from "../../firebase/firebase";
-import { format } from "date-fns";
+import {formatDate} from "../../utils/order"
 import "./OrderDetails.css";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
   const { ordersSaved } = useFirebase();
 
-  const formatDate = (timestamp) => {
-    const milliseconds =
-      timestamp.seconds * 1000 + Math.round(timestamp.nanoseconds / 1e6);
-    const date = new Date(milliseconds);
-    const formattedDate = format(date, "M/d/yyyy, h:mm:ss a");
-    return formattedDate;
-  };
+
   let dateTime,
     currentOrder,
     products,

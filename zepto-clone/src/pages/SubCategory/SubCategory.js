@@ -123,7 +123,6 @@ const SubCategory = () => {
             <div className="detailed-page-container">
               {subCatProducts.length!==0 && subCatProducts.map((each) => {
                 const productId = products[subCatId-1][1].subCategory;
-                console.log(each,"eachhhhhhhhhhhhhhhhh")
                 return (
                   <SubProductItem
                     key={each[0]}
