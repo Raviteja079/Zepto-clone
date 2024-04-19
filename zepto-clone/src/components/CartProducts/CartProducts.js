@@ -14,7 +14,13 @@ import Button from "../Button/Button";
 import { collection, getDocs } from "firebase/firestore";
 
 const CartProducts = () => {
-  const { cartProductsList, getAllCartProducts } = useFirebase();
+  const {
+    cartProductsList,
+    getAllCartProducts,
+    setCount,
+    user,
+    setCartProductsList,
+  } = useFirebase();
   const [couponModal, setCouponModal] = useState(false);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const [couponCode, setCouponCode] = useState("");
@@ -47,9 +53,16 @@ const CartProducts = () => {
     getCoupons();
   }, []);
 
+
+  useEffect(() => {
+    setCount(c => c+1)
+  },[])
+
   const updateCart = async () => {
-    await getAllCartProducts();
+    await getAllCartProducts(user, setCartProductsList, setCount);
   };
+
+
 
   const originalPrice = () => {
     const originalPricesArray = cartProductsList.map((each) => {
@@ -157,9 +170,7 @@ const CartProducts = () => {
           <Link to="/" className="add-more-btn-container">
             <button className="add-more-btn">Add More</button>
           </Link>
-          {/* <div className="add-more-btn-container">
-          <button className="add-more-btn">Add More</button>
-        </div> */}
+          
         </div>
       </div>
       <div className="orders-total-container">

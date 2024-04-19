@@ -7,15 +7,12 @@ import { format } from "date-fns";
 
 const Orders = () => {
   const [ordersArray, setOrdersArray] = useState([]);
-  const { getSavedOrders } = useFirebase();
-
+  const { getSavedOrders, userRefId, setOrdersSaved } = useFirebase();
 
   const getOrderDetails = async () => {
-    const result = await getSavedOrders();
-    console.log(result)
+    const result = await getSavedOrders(userRefId, setOrdersSaved);
     setOrdersArray(result);
   };
-
 
   useEffect(() => {
     getOrderDetails();
@@ -28,7 +25,6 @@ const Orders = () => {
     const formattedDate = format(date, "M/d/yyyy, h:mm:ss a");
     return formattedDate;
   };
-
 
   return (
     <div className="main-container">

@@ -100,7 +100,7 @@ const ProductDetails = () => {
         console.log(err.message);
       }
     }
-    if (quantity > 1) {
+    if (quantity > 1 && user && user.email) {
       const collectionRef = collection(firestore, "Cart " + user.uid);
       const currentProduct = await getDocs(collectionRef);
       currentProduct.forEach(async (document) => {
@@ -115,16 +115,24 @@ const ProductDetails = () => {
 
   const increaseQty = async () => {
     setCount((q) => q + 1);
-    const collectionRef = collection(firestore, "Cart " + user.uid);
-    const currentProduct = await getDocs(collectionRef);
-    currentProduct.forEach(async (document) => {
-      if (document.data().id === productId) {
-        const docRef = doc(firestore, "Cart " + user.uid, document.id);
-        await updateDoc(docRef, { qty: document.data().qty + 1 });
-        setQuantity(document.data().qty + 1);
-      }
-    });
-  };
+    try{
+        if(user && user.email){
+        const collectionRef = collection(firestore, "Cart " + user.uid);
+        const currentProduct = await getDocs(collectionRef);
+        currentProduct.forEach(async (document) => {
+          if (document.data().id === productId) {
+            const docRef = doc(firestore, "Cart " + user.uid, document.id);
+            await updateDoc(docRef, { qty: document.data().qty + 1 });
+            setQuantity(document.data().qty + 1);
+          }
+        });
+    }
+    }catch(err){
+        console.log(err.message)
+    }
+    
+  }
+  ;
 
   return (
     <>
@@ -174,6 +182,7 @@ const ProductDetails = () => {
                 handleAddClick={handleAddClick}
                 increaseQty={increaseQty}
                 decreaseQty={decreaseQty}
+                count= {count}
               />
             </div>
             <hr className={classes["hr-line"]} />

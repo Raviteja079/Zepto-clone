@@ -24,7 +24,6 @@ const OrderDetails = () => {
     currentOrder = currentOrder[0];
     products = [...currentOrder[1].products];
     dateTime = formatDate(currentOrder[1].time);
-    console.log(currentOrder[1], "current order{1}");
     deliveryFee = currentOrder[1].deliveryFee;
     tip = currentOrder[1].tip;
     coupons = currentOrder[1].coupons;

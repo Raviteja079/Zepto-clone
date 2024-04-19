@@ -2,32 +2,29 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Headers/Header";
 import "./Cart.css";
 import Modal from "../components/Login/Login";
-import {useFirebase } from "../firebase/firebase";
+import { useFirebase } from "../firebase/firebase";
 import { Link, useLocation } from "react-router-dom";
 import BrowseProducts from "../components/EmptyCart/BrowseProducts";
 import CartProducts from "../components/CartProducts/CartProducts";
 import { FaAngleLeft } from "react-icons/fa6";
 
-
 export const Cart = () => {
   const location = useLocation();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { isLoggedIn, user,cartProductsList,getAllCartProducts} = useFirebase();
+  const { isLoggedIn,cartProductsList} = useFirebase();
 
   useEffect(() => {
     const { pathname } = location;
     document.title = pathname;
   }, [location]);
 
-  
-  useEffect(() => {
-    
-     const allProducts = async()=>{
-         const result = await getAllCartProducts();
-     }
-     allProducts()
-  }, [user]);
+//   useEffect(() => {
+//     const allProducts = async () => {
+//       const result = await getAllCartProducts();
+//     };
+//     allProducts();
+//   }, [user]);
 
   const openModal = () => {
     setModalOpen(true);
@@ -35,7 +32,6 @@ export const Cart = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
-//   console.log(productsList, 'products list')
   if (isLoggedIn)
     return (
       <div className="cart-page-container">

@@ -30,7 +30,14 @@ const Address = () => {
   const [houseNo, setHouseNo] = useState("");
   const [buildingNo, setBuildingNo] = useState("");
   const [areaName, setAreaName] = useState("");
-  const { addAddress, userAddresses } = useFirebase();
+   const {
+     addAddress,
+     userAddresses,
+     userRefId,
+     user,
+     setUserAddresses,
+     setDeliveryAddresses,
+   } = useFirebase();
   const [errMsg, setErrMsg] = useState("");
 
   const handleBlurClick = (e) => {
@@ -41,15 +48,23 @@ const Address = () => {
 
   const submitData = async () => {
     if (houseNo !== "" && buildingNo !== "" && areaName !== "") {
-        console.log(houseNo, buildingNo, areaName)
       setErrMsg("");
-      await addAddress(uuidv4(), houseNo, buildingNo, areaName);
+      await addAddress(
+        user,
+        userRefId,
+        userAddresses,
+        uuidv4(),
+        houseNo,
+        buildingNo,
+        areaName,
+        setUserAddresses,
+        setDeliveryAddresses
+      );
       setHouseNo("")
       setBuildingNo("")
       setAreaName("")
       handleCloseModal();
     } else {
-        console.log("got")
       setErrMsg("Enter valid data");
     }
   };
@@ -112,7 +127,6 @@ const Address = () => {
       ) : (
         <div>
           {userAddresses.map((each) => {
-            console.log(each)
             return (
               <AddressItem
                 hNo={each.houseNo}

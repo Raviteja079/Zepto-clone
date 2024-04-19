@@ -1,61 +1,66 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Profile.css";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { firebaseAuth, firestore, useFirebase } from "../../firebase/firebase";
 import Button from "../../components/Button/Button";
-import { deleteUser } from "firebase/auth";
+import { deleteUser, reauthenticateWithCredential } from "firebase/auth";
 import { deleteDoc, doc } from "firebase/firestore";
 import ModalComponent from "../../components/Modal/Modal";
-import cautionImage from "../../assets/Profile/t-img-suc-delete.png"
+import cautionImage from "../../assets/Profile/t-img-suc-delete.png";
+import { EmailAuthProvider } from "firebase/auth/cordova";
 
 const Profile = () => {
   const [userProfile, setUserProfile] = useState("");
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-const [name,setName] = useState("")
-const [removeAccountModal,setRemoveAccountModal] = useState(false)
-  const { getUserDocDetails, temp, updateUserProfileName, userRefId } =
+  const [name, setName] = useState("");
+  const [removeAccountModal, setRemoveAccountModal] = useState(false);
+  const { getUserDocDetails, temp, updateUserProfileName, userRefId,user } =
     useFirebase();
-    const navigate = useNavigate()
 
-const getUserDoc = async () => {
-  const userData = await getUserDocDetails();
-  setUserProfile(userData);
-  setName(userData?.name);
-};
+  const navigate = useNavigate();
 
-const openRemoveUserModal = ()=>{
-    setRemoveAccountModal(true)
-}
+  const getUserDoc = async () => {
+    const userData = await getUserDocDetails(user,userRefId);
+    setUserProfile(userData);
+    setName(userData?.name);
+  };
 
-const handleComponentClose = ()=>{
-    setRemoveAccountModal(false)
-}
+  const openRemoveUserModal = () => {
+    setRemoveAccountModal(true);
+  };
+
+  const handleComponentClose = () => {
+    setRemoveAccountModal(false);
+  };
 
   useEffect(() => {
     getUserDoc();
+  }, [getUserDocDetails, temp]);
 
-  }, [getUserDocDetails,temp]);
-
-  const removeUser = async()=>{
+  const removeUser = async () => {
+    let credential = EmailAuthProvider.credential(
+      userProfile.email,
+      userProfile.password
+    );
     const loggedInUser = firebaseAuth.currentUser;
+    await reauthenticateWithCredential(loggedInUser, credential);
     await deleteUser(loggedInUser);
-    console.log(1);
-    const docRef = doc(firestore, "users", userRefId);
-    console.log(2);
+    const docRef = doc(firestore, "users", userRefId.current);
     await deleteDoc(docRef);
-    navigate("/")
-  }
-
-  const handleClick = async() => {
-    await updateUserProfileName(name)
-    await getUserDoc()
+    navigate("/");
   };
 
-  const handleInputChange = (e)=>{
-    const value = e.target.value
-    setName(value)
-    setIsButtonEnabled(value.trim().length > 0)
-  }
+  const handleClick = async () => {
+    await updateUserProfileName(userRefId, name)
+    setName("")
+    await getUserDoc();
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setName(value);
+    setIsButtonEnabled(value.trim().length > 0);
+  };
 
   return (
     <div className="profile-container">

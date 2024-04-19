@@ -23,9 +23,9 @@ function Home() {
     <div className="home-page-container">
       <Header />
       <BannerSecion />
-      <OfferBanner/>
+      <OfferBanner />
       <Products />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import SubCategory from "./pages/SubCategory/SubCategory.js";
 import Search from "./pages/Search.js";
 import ProductDetails from "./pages/ProductDetails/ProductDetails.js";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes.js";
+import ChangeCartAdd from "./components/ChangeAddress/ChangeCartAdd.js";
 
 function App() {
   return (
@@ -34,7 +35,6 @@ function App() {
               <Route path="order-details/:orderId" element={<Account />} />
             </Route>
           </Route>
-
           <Route path="/sub-category/:id" element={<SubCategory />}>
             <Route path=":subCatId" element={<SubCategory />} />
           </Route>

@@ -7,13 +7,31 @@ const AddCartAddresses = ({ onClose }) => {
   const [houseNo, setHouseNo] = useState("");
   const [buildingNo, setBuildingNo] = useState("");
   const [areaName, setAreaName] = useState("");
-  const { addAddress } = useFirebase();
+  const {
+    addAddress,
+    userAddresses,
+    userRefId,
+    user,
+    setUserAddresses,
+    setDeliveryAddresses,
+  } = useFirebase();
   const [errMsg, setErrMsg] = useState("");
 
   const submitData = async () => {
     if (houseNo !== "" && buildingNo !== "" && areaName !== "") {
       setErrMsg("");
-      await addAddress(uuidv4(), houseNo, buildingNo, areaName);
+      await addAddress(
+        user,
+        userRefId,
+        userAddresses,
+        uuidv4(),
+        houseNo,
+        buildingNo,
+        areaName,
+        setUserAddresses,
+        setDeliveryAddresses
+      );
+      
       setHouseNo("");
       setBuildingNo("");
       setAreaName("");

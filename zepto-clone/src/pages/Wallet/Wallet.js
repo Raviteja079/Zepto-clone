@@ -74,10 +74,20 @@ const Wallet = () => {
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [promocode, setPromocode] = useState("");
-//   const [walletAmt, setWalletAmt] = useState(0);
+  const [walletAmt, setWalletAmt] = useState(0);
   const [appliedPromocodes, setAppliedPromoCodes] = useState([]);
   const [availablePromocodes, setAvailablePromoCodes] = useState([]);
-  const { getTransactions, addTransactions, wallet, temp } = useFirebase();
+  const {
+    getTransactions,
+    addTransactions,
+    wallet,
+    temp,
+    userRefId,
+    getUserDocDetails,
+    setWalletTransactions,
+    setWallet,
+    user
+  } = useFirebase();
 
   useEffect(() => {
     const getCoupons = async () => {
@@ -100,7 +110,13 @@ const Wallet = () => {
     getCoupons();
 
     const getAllTransactions = async () => {
-      const allWalletTransactions = await getTransactions();
+      const allWalletTransactions = await getTransactions(
+        getUserDocDetails,
+        setWalletTransactions,
+        setWallet,
+        user,
+        userRefId
+      );
       setAppliedPromoCodes(allWalletTransactions || []);
     };
     getAllTransactions();
@@ -124,7 +140,6 @@ const Wallet = () => {
     } catch (err) {
       console.log(err.message);
     }
-    
   };
 
   const verifyVoucherCode = async () => {
@@ -139,11 +154,20 @@ const Wallet = () => {
         alert("already applied this promocode");
         handleComponentClose();
       } else if (matchedCode) {
-        // setWalletAmt((amt)=>amt + matchedCode.value);
+        setWalletAmt((amt)=>amt + matchedCode.value);
         const dateTime = new Date()
-        // setAppliedPromoCodes([...appliedPromocodes, {...matchedCode,dateTime:dateTime}]);
-        await addTransactions({ ...matchedCode, dateTime: dateTime });
+        setAppliedPromoCodes([...appliedPromocodes, {...matchedCode,dateTime:dateTime}]);
         handleComponentClose();
+        await addTransactions(
+            user,
+          getUserDocDetails,
+          setWalletTransactions,
+          setWallet,
+          userRefId,
+          getTransactions,
+          wallet,
+          matchedCode
+        );
       } else {
         alert("Invalid coupon code");
       }
@@ -161,11 +185,10 @@ const Wallet = () => {
       <div className="wallet-container">
         <div className="wallet-inner-container">
           <div className="wallet-banner"></div>
-
           <div className="wallet-white-card">
             <div className="wallet-balance-container">
               <div className="balance-amt-container">
-                <h3 className="balance-text amount">₹{wallet}</h3>
+                <h3 className="balance-text amount">₹{walletAmt}</h3>
                 <div className="d-flex align-items-center">
                   <h6 className="mb-1 balance-text">Your Balance</h6>
                   <button className="wallet-info-button" onClick={openModal}>
@@ -236,8 +259,6 @@ const Wallet = () => {
           {appliedPromocodes.length !== 0 ? (<div>
             {appliedPromocodes.map(each=>{
                 // const appliedVoucher = availablePromocodes.find((eachCode)=>eachCode.code === each)
-                console.log(each,"janagan")
-                
                 return (
                   <div className="d-flex flex-column transaction-card">
                     <h5 className="mb-3">{each.name}</h5>

@@ -9,7 +9,6 @@ import { useFirebase } from "../../firebase/firebase";
 const DeliveryInstructions = () => {
   const [selectedInstructions, setSelectedInstructions] = useState([]);
   const { setDelvryInstructions } = useFirebase();
-  console.log(selectedInstructions,"madoori")
 
   const toggleInstruction = (instruction) => {
     if (selectedInstructions.includes(instruction)) {

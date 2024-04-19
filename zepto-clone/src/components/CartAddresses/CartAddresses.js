@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useFirebase } from "../../firebase/firebase";
+import { useFirebase } from "../../firebase/firebase";
 import ChangeCartAdd from "../ChangeAddress/ChangeCartAdd";
 import AddCartAddresses from "../AddCartAddress/AddCartAddress";
 import ModalComponent from "../Modal/Modal";
@@ -8,7 +8,7 @@ import locationPin from "../../assets/cart/location-pin.svg";
 import zeptoFavicon from "../../assets/favicon.png";
 import { useNavigate } from "react-router-dom";
 
-const CartAddresses = ({total,orderCharges}) => {
+const CartAddresses = ({ total, orderCharges }) => {
   const {
     userAddresses,
     user,
@@ -17,16 +17,17 @@ const CartAddresses = ({total,orderCharges}) => {
     saveAsOrder,
     emptyCart,
     setCount,
-    setTotal
+    setTotal,
+    delvryInstructions,
+    userRefId,
   } = useFirebase();
-  
+
   const [allAddresses, setAllAddresses] = useState([]);
   const [cartAddressModalOpen, setCartAddressModalOpen] = useState(false);
   const [AddAddressModalOpen, setAddAddressModalOpen] = useState(false);
-  const[selectedAddress, setSelectedAddress] = useState({})
-  const [cartItems, SetCartItems] = useState([])
-  const navigate = useNavigate()
- 
+  const [selectedAddress, setSelectedAddress] = useState({});
+  const [cartItems, SetCartItems] = useState([]);
+  const navigate = useNavigate();
 
   const openCartAddressModal = () => {
     setCartAddressModalOpen(true);
@@ -44,21 +45,22 @@ const CartAddresses = ({total,orderCharges}) => {
 
   useEffect(() => {
     setAllAddresses(userAddresses);
-    setSelectedAddress(deliveryAddress)
-    SetCartItems(cartProductsList)
-  }, [userAddresses, allAddresses,deliveryAddress]);
+    setSelectedAddress(deliveryAddress);
+    SetCartItems(cartProductsList);
+  }, [userAddresses, allAddresses, deliveryAddress]);
 
-  const amount = parseInt(total*100);
+  const amount = parseInt(total * 100);
   const currency = "INR";
   const receiptId = "ADAFJ89DSF343";
 
-  const saveOrderDetails = (cartProducts)=>{
-    setTotal(total)
-    saveAsOrder(cartProducts,orderCharges)
-    emptyCart()
-    setCount(0)
-  }
- 
+  const saveOrderDetails = (cartProducts) => {
+    setTotal(total);
+    // saveAsOrder(cartProducts,orderCharges)
+    saveAsOrder(userRefId, cartProducts, orderCharges, delvryInstructions);
+    emptyCart(user);
+    setCount(0);
+  };
+
   const handlePayment = async (e) => {
     const response = await fetch("http://localhost:5000/order", {
       method: "POST",
@@ -74,13 +76,13 @@ const CartAddresses = ({total,orderCharges}) => {
     const order = await response.json();
 
     var options = {
-      key: "rzp_test_VMRDNU93WFaNL7", 
-      amount, 
+      key: "rzp_test_VMRDNU93WFaNL7",
+      amount,
       currency,
-      name: "Zepto", 
+      name: "Zepto",
       description: "Test Transaction",
       image: { zeptoFavicon },
-      order_id: order.id, 
+      order_id: order.id,
       handler: async function (response) {
         const body = {
           ...response,
@@ -101,20 +103,17 @@ const CartAddresses = ({total,orderCharges}) => {
 
         const randomTime =
           Math.floor(Math.random() * (900000 - 480000 + 1)) + 480000;
-          console.log(randomTime)
-        
+        console.log(randomTime);
+
         setTimeout(() => {
           saveOrderDetails(cartItems);
         }, randomTime);
 
-        navigate("/account")
-        saveOrderDetails(cartItems);
-
+        navigate("/account");
       },
       prefill: {
-        name: user.uid, 
+        name: user.uid,
         email: user.email,
-       
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -135,7 +134,6 @@ const CartAddresses = ({total,orderCharges}) => {
     });
     rzp1.open();
     e.preventDefault();
-    
   };
 
   return (
@@ -171,13 +169,11 @@ const CartAddresses = ({total,orderCharges}) => {
             Continue To Payment
           </button>
         ) : (
-            <div className="d-flex justify-content-start w-100">
-                <button className="add-address-btn" onClick={handleAddAddress}>
-            +<span>Add Address</span>
-          </button>
-            </div>
-
-          
+          <div className="d-flex justify-content-start w-100">
+            <button className="add-address-btn" onClick={handleAddAddress}>
+              +<span>Add Address</span>
+            </button>
+          </div>
         )}
       </div>
       <ModalComponent

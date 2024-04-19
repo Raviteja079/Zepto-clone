@@ -7,11 +7,17 @@ import React, { useState } from "react";
 import { useFirebase } from "../../firebase/firebase";
 
 const AddressItem = (each) => {
-  const { deleteAddress } = useFirebase();
+  const { deleteAddress, userRefId, userAddresses, setUserAddresses } =
+    useFirebase();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const handleDeleteAddress = async () => {
-    await deleteAddress(each.id);
+    await deleteAddress(
+      userRefId,
+      userAddresses,
+      setUserAddresses,
+      each.id
+    );
   };
 
   return (

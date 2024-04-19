@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/LoginModal/modal-logo.svg";
 import phone from "../../assets/LoginModal/get-the-app-phone.webp";
@@ -7,7 +7,7 @@ import appstore from "../../assets/LoginModal/download-app-store.svg";
 
 import { firestore, useFirebase } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const Modal = ({ isOpen, onClose, children }) => {
   const navigate = useNavigate();
@@ -16,8 +16,6 @@ const Modal = ({ isOpen, onClose, children }) => {
   const [emailErr, setEmailErr] = useState("");
   const [passErr, setPassErr] = useState("");
   const [password, setPassword] = useState("");
-  const [msg, setMsg] = useState("");
-  const [users, setUsers] = useState([]);
 
 
   const validate = (str,field) => {
@@ -25,7 +23,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       return false;
     } else {
         if(field==="email"){
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /^[a-z]+@[a-z]+\.[a-z]+$/;
             return emailRegex.test(str);
         }
         else if (field === "password") {
@@ -35,24 +33,6 @@ const Modal = ({ isOpen, onClose, children }) => {
         }
     }
   };
-
-  useEffect(() => {
-    setError("");
-    const getUsers = async () => {
-      try {
-        let users = [];
-        const querySnapshot = await getDocs(collection(firestore, "users"));
-        querySnapshot.forEach((doc) => {
-          users.push(doc.data());
-        });
-        setUsers(users);
-      } catch (error) {
-        console.error("Error getting users:", error);
-        setUsers([]);
-      }
-    };
-    getUsers();
-  }, []);
 
   if (!isOpen) return null;
 
@@ -77,28 +57,24 @@ const Modal = ({ isOpen, onClose, children }) => {
   const submitHandler = async () => {
     const validatedEmail = validate(email,"email");
     const validatedPassword = validate(password,"password");
-    console.log("submit login",email,password)
 
     if (validatedEmail && validatedPassword) {
       try {
-        const filtered = users.filter(
-          (eachUser) =>
-            eachUser.email === email && eachUser.password === password
-        );
-
-        if (filtered.length === 0) {
-          signUp(email, password);
-          onClose();
+        const collectionRef = collection(firestore,"users")
+        let q = query(collectionRef,where("email","==",email))
+        let u = await getDocs(q)
+        u = u.docs;
+        if(u.length > 0){
+        await signInUser(email, password, navigate, onClose);
         }
-        await signInUser(email, password);
-        onClose()
+        signUp(email, password, navigate, setError,onClose);
+
       } catch (err) {
-        setMsg(err.message);
+        console.log(err.message)
       }
     } else {
       if (!validatedEmail) setEmailErr("Enter correct email");
       if (!validatedPassword) setPassErr("Enter correct password");
-      else setPassErr("Enter correct password");
     }
   };
 

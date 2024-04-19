@@ -5,10 +5,16 @@ import locationPin from "../../assets/cart/location-pin.svg";
 
 const ChangeCartAdd = ({onClose}) => {
   const [allAddresses, setAllAddresses] = useState([]);
-  const { userAddresses, ChangeAddressTo} = useFirebase();
+  const {
+    userAddresses,
+    changeAddressTo,
+    userRefId,
+    user,
+    setDeliveryAddresses,
+  } = useFirebase();
 
 const changeToDeliveryAddress = (addressDetails)=>{
-    ChangeAddressTo(addressDetails)
+    changeAddressTo(userRefId, addressDetails, user, setDeliveryAddresses);
     onClose()
 }
 

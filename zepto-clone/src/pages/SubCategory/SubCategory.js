@@ -19,6 +19,7 @@ const SubCategory = () => {
     getCartProducts,
     setCount
   } = useFirebase();
+
   const [products, setProducts] = useState([]);
   const [subCatProducts, setSubCatProducts] = useState([]);
   const [cart, setCart] = useState([])
