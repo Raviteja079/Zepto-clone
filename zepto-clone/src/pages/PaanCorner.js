@@ -14,7 +14,7 @@ const PaanCorner = () => {
     <div>
       <Header isSearch={false} />
       <div>
-        <h3 className="text-primary m-5">Paan Corner coming soon....</h3>
+        <h3 className="text-primary m-5">Paan Corner</h3>
       </div>
     </div>
   );

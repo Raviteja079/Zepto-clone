@@ -13,10 +13,8 @@ import {
 } from "firebase/firestore";
 
 const ProductItem = (props) => {
-  const { data, isCard, addToCart, product, isCartProduct, updateCart, cart } =
-    props;
+  const { data, isCard, addToCart, product, isCartProduct, updateCart, cart } = props;
   const { user, count, setCount } = useFirebase();
-
   const [quantity, setQuantity] = useState(0);
 
   let productId;
@@ -52,7 +50,6 @@ const ProductItem = (props) => {
   };
 
   const decreaseQty = async () => {
-    // if (!count <= 0) {
       setCount((q) => q - 1);
     // }
     if (quantity === 1) {
@@ -76,21 +73,6 @@ const ProductItem = (props) => {
          } else {
            setQuantity(0);
          }
-
-        // const collectionRef = collection(firestore, "Cart " + user.uid);
-        // const currentProduct = await getDocs(collectionRef);
-        // currentProduct.forEach(async (document) => {
-        //   if (document.data().id === productId) {
-        //     const docRef = doc(firestore, "Cart " + user.uid, document.id);
-        //     // await updateDoc(docRef, { qty: document.data().qty + 1 });
-        //     await deleteDoc(docRef);
-        //     if (isCartProduct) {
-        //       await updateCart();
-        //     } else {
-        //       setQuantity(0);
-        //     }
-        //   }
-        // });
 
         return;
       } catch (err) {

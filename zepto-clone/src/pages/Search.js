@@ -9,12 +9,10 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 const Search = () => {
   const location = useLocation();
   const [cart, setCart] = useState([]);
-//   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const { searchPageProducts, user } = useFirebase();
 
   const handleSearchInputChange = (event) => {
-    // setSearchQuery(event.target.value);
     filterData(event.target.value);
   };
 

@@ -172,11 +172,12 @@
 
 .card {
   width: 450px;
-  height: 90vh;
+  height: 75vh;
   overflow-y: scroll;
   background-color: white;
   padding: 40px 30px 20px 20px;
   border-radius: 8px;
+  margin-top: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 

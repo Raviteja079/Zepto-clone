@@ -19,13 +19,6 @@ export const Cart = () => {
     document.title = pathname;
   }, [location]);
 
-//   useEffect(() => {
-//     const allProducts = async () => {
-//       const result = await getAllCartProducts();
-//     };
-//     allProducts();
-//   }, [user]);
-
   const openModal = () => {
     setModalOpen(true);
   };

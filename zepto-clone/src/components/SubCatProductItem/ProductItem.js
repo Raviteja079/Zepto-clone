@@ -4,22 +4,7 @@ import { useFirebase } from "../../firebase/firebase";
 import { Link, useParams } from "react-router-dom";
 
 const ProductItem = (data) => {
-//   const [products, setProducts] = useState([]);
-//   const { getSubCategories } = useFirebase();
   const { id, subCatId } = useParams();
-
-//   useEffect(() => {
-//     const getProducts = async () => {
-//       try {
-//         const subCategories = await getSubCategories(id);
-//         setProducts(subCategories.docs);
-//       } catch (error) {
-//         console.error("Error getting users:", error);
-//         setProducts([]);
-//       }
-//     };
-//     getProducts();
-//   }, [getSubCategories, id]);
 
   return (
     <Link

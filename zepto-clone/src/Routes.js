@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import { NotFound } from "./components/NotFound";
+import Home from "./pages/Home.js";
+import { NotFound } from "./components/NotFound.js";
 import { Cart } from "./pages/Cart.js";
 import { LoggedInStatusProvider } from "./firebase/firebase.js";
 import Account from "./components/Account/Account.js";
@@ -9,7 +9,6 @@ import SubCategory from "./pages/SubCategory/SubCategory.js";
 import Search from "./pages/Search.js";
 import ProductDetails from "./pages/ProductDetails/ProductDetails.js";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes.js";
-import ChangeCartAdd from "./components/ChangeAddress/ChangeCartAdd.js";
 
 function App() {
   return (
@@ -39,7 +38,6 @@ function App() {
             <Route path=":subCatId" element={<SubCategory />} />
           </Route>
 
-          {/* <Route path="/payment" element={<Payment />} /> */}
           <Route path="/search" element={<Search />} />
           <Route path="/product-details">
             <Route path=":id" element={<ProductDetails />} />
